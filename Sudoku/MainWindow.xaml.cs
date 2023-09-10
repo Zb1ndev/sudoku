@@ -602,29 +602,14 @@ namespace Sudoku {
         private void level_button_click(object sender, RoutedEventArgs e)
         {
             string name = (sender as Button).Name;
-            if (name == "Level1") { currentLevel = 1; CurrentLevelText.Content = "Selected Level : Level 1"; }
-            if (name == "Level2") { currentLevel = 2; CurrentLevelText.Content = "Selected Level : Level 2"; }
-            if (name == "Level3") { currentLevel = 3; CurrentLevelText.Content = "Selected Level : Level 3"; }
-            if (name == "Level4") { currentLevel = 4; CurrentLevelText.Content = "Selected Level : Level 4"; }
-            if (name == "Level5") { currentLevel = 5; CurrentLevelText.Content = "Selected Level : Level 5"; }
-            if (name == "Level6") { currentLevel = 6; CurrentLevelText.Content = "Selected Level : Level 6"; }
-            if (name == "Level7") { currentLevel = 7; CurrentLevelText.Content = "Selected Level : Level 7"; }
-            if (name == "Level8") { currentLevel = 8; CurrentLevelText.Content = "Selected Level : Level 8"; }
-            if (name == "Level9") { currentLevel = 9; CurrentLevelText.Content = "Selected Level : Level 9"; }
-            if (name == "Random")
-            {
-                currentLevel = 0;
-                CurrentLevelText.Content = "Selected Level : Random";
-                isEasy.IsEnabled = true;
-                isNormal.IsEnabled = true;
-                isHard.IsEnabled = true;
-            }
-            else
-            {
-                isEasy.IsEnabled = false;
-                isNormal.IsEnabled = false;
-                isHard.IsEnabled = false;
-            }
+
+            currentLevel = name == "Random" ? 0 : Int32.Parse(name[5].ToString);
+            CurrentLevelText.Content = name == "Random" ? "Selected Level : Random" : "Selected Level : Level " + currentLevel.ToString();
+            
+            isEasy.IsEnabled = (name == "Random");
+            isNormal.IsEnabled = (name == "Random");
+            isHard.IsEnabled = (name == "Random");
+            
         }
         private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
@@ -838,42 +823,7 @@ namespace Sudoku {
         private void OnNumberPicked(object sender, RoutedEventArgs e)
         {
             string name = (sender as RadioButton).Name;
-            if (name == "number1")
-            {
-                currentNumber = 1;
-            }
-            if (name == "number2")
-            {
-                currentNumber = 2;
-            }
-            if (name == "number3")
-            {
-                currentNumber = 3;
-            }
-            if (name == "number4")
-            {
-                currentNumber = 4;
-            }
-            if (name == "number5")
-            {
-                currentNumber = 5;
-            }
-            if (name == "number6")
-            {
-                currentNumber = 6;
-            }
-            if (name == "number7")
-            {
-                currentNumber = 7;
-            }
-            if (name == "number8")
-            {
-                currentNumber = 8;
-            }
-            if (name == "number9")
-            {
-                currentNumber = 9;
-            }
+            currentNumber = Int32.Parse(name[5].ToString());
         }
     }
 }
