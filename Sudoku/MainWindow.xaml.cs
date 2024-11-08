@@ -823,7 +823,7 @@ namespace Sudoku {
         private void OnNumberPicked(object sender, RoutedEventArgs e)
         {
             string name = (sender as RadioButton).Name;
-            currentNumber = Int32.Parse(name[5].ToString());
+            currentNumber = Int32.Parse(name[6].ToString());
         }
     }
 }
