@@ -603,7 +603,7 @@ namespace Sudoku {
         {
             string name = (sender as Button).Name;
 
-            currentLevel = name == "Random" ? 0 : Int32.Parse(name[5].ToString);
+            currentLevel = name == "Random" ? 0 : Int32.Parse(name[5].ToString());
             CurrentLevelText.Content = name == "Random" ? "Selected Level : Random" : "Selected Level : Level " + currentLevel.ToString();
             
             isEasy.IsEnabled = (name == "Random");
