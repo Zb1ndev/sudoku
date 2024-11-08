@@ -16,7 +16,7 @@
             <Image HorizontalAlignment="Left" Height="100" Margin="237,115,0,0" VerticalAlignment="Top" Width="100" Source="Logo.png"/>
             <Label Content="Sudoku" HorizontalAlignment="Left" Margin="190,193,0,0" VerticalAlignment="Top" FontSize="48" FontFamily="Segoe UI Black"/>
             <Rectangle Fill="#FFF4F4F9" HorizontalAlignment="Left" Height="0" Margin="243,250,0,0" Stroke="Black" VerticalAlignment="Top" Width="1"/>
-            <Label Content="Made By : Joel Zbinden and Liam Sullivan" HorizontalAlignment="Left" Margin="3,537,0,0" VerticalAlignment="Top"/>
+            <Label Content="Made By : Joel Zbinden" HorizontalAlignment="Left" Margin="3,537,0,0" VerticalAlignment="Top"/>
 
 
         </Grid>
