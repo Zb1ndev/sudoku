@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Timers;
 using System.Collections;
 using System.Collections.Generic;
@@ -17,8 +17,11 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Diagnostics;
 
-namespace Sudoku {
-    public partial class MainWindow : Window {
+namespace Sudoku 
+{
+    public partial class MainWindow : Window 
+    {
+
         // Determines if the some tiles will be removed or all will contain numbers
         bool debug = true;
 
@@ -41,11 +44,13 @@ namespace Sudoku {
             InitializeComponent();
 
             // Basically a Start Function
-            if (x == 0) {
+            if (x == 0) 
+            {
                 x = 1;
 
                 // [Letter] = 3x3 Group letter, [1st Number] = Horizontal Group, [2nd Number] = Vertical Group
-                tiles = new Dictionary<string, int>(){
+                tiles = new Dictionary<string, int>()
+                {
 
                     {"a11", 0 },{"a12", 0 },{"a13", 0 },  {"b14", 0 },{"b15", 0 },{"b16", 0 },  {"c17", 0 },{"c18", 0 },{"c19", 0 },
                     {"a21", 0 },{"a22", 0 },{"a23", 0 },  {"b24", 0 },{"b25", 0 },{"b26", 0 },  {"c27", 0 },{"c28", 0 },{"c29", 0 },
@@ -62,7 +67,8 @@ namespace Sudoku {
                 }; // Tiles
 
                 // Pre-Made Boards [Unsolved] 
-                boards = new List<string>(){
+                boards = new List<string>()
+                {
                     "", // Random Board
                     "000260701680070090190004500820100040004602900050003028009300074040050036703018000",
                     "100489006730000040000001295007120600500703008006095700914600000020000037800512004",
@@ -76,7 +82,8 @@ namespace Sudoku {
                 };
 
                 // Pre-Made Boards [Solved]
-                solvedBoards = new List<string>(){
+                solvedBoards = new List<string>()
+                {
                     "", // Random Board
                     "435269781682571493197834562826195347374682915951743628519326874248957136763418259",
                     "152489376739256841468371295387124659591763428246895713914637582625948137873512964",
@@ -133,8 +140,10 @@ namespace Sudoku {
             // Sort Rows
             for (int i = 0; i < 9; i++)
             {
+                // Basically if (i+1 % 3 != 0)
                 if ((i + 1) != 3 && (i + 1) != 6 && (i + 1) != 9)
                 {
+                    // Honestly no clue why this runs twice, though I dont feel like looking at it very hard
                     for (int k = 0; k < 2; k++)
                     {
 
@@ -341,6 +350,7 @@ namespace Sudoku {
                                 }
                             }
 
+                            // This is an old check list I guess I never completed
                             /// Look for a tile in current column that has the value in its row and group - X
                             /// check if any available duplicates have that tiles value
                             /// if so then make the duplicate swap with that value and make the random tile swap with the value we need
@@ -398,6 +408,7 @@ namespace Sudoku {
                 }
             }
 
+            // Writes the seed to a string lol
             // Write Seed to Readable Format
             foreach (KeyValuePair<string, int> key in tile) {
                 seed = seed + tiles[key.Key].ToString();
@@ -407,9 +418,12 @@ namespace Sudoku {
 
         }
 
-
-        public string GenerateSeed()
-        {
+        /* 
+             I think this was an attempt later on to make the code more readable ( Hence the different curly braces convention ). 
+             So all the generator code use to be just one function. I also dont think the stop watch works as it reads 1ms sometimes
+             and I dont think I was that good at programming.
+        */
+        public string GenerateSeed() {
 
             Stopwatch watch = new Stopwatch();
             watch.Start();
@@ -419,7 +433,7 @@ namespace Sudoku {
             List<int> duplicates = new List<int>();
             int check = 0;
             string group = "abcdefghi";
-
+               
             bool usableSeed = false;
             while (!usableSeed) {
 
